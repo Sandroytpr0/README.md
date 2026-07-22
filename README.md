@@ -102,7 +102,8 @@ Organiza los lugares del campus según su distancia, de menor a mayor.
 
 ## Evidencia de ejecución
 
-*(Reemplaza esto por una captura de pantalla real de tu consola cuando ejecutes el código.)*
+<img width="725" height="615" alt="image" src="https://github.com/user-attachments/assets/2ac59c21-c6fb-4727-acf8-f6dc5c5419a6" />
+
 
 ## Video de exposición
 
