@@ -79,7 +79,28 @@ Organiza los lugares del campus según su distancia, de menor a mayor.
   ejecutar Merge Sort sobre cada mitad.
 
 ## Estructura del repositorio
+*(Nota: esta es la organización planeada. Se actualizará conforme el equipo suba sus módulos.)*
 
+## Cómo ejecutar el proyecto (módulo de estructuras estáticas)
+
+1. Clonar el repositorio:
+```bash
+   git clone [link-del-repo]
+```
+2. Ubicarse en la carpeta del módulo:
+```bash
+   cd src/estructuras-estaticas
+```
+3. Compilar:
+```bash
+   javac AnalisisLinealEstatico.java
+```
+4. Ejecutar:
+```bash
+   java AnalisisLinealEstatico
+```
+
+## Evidencia de ejecución
 
 *(Reemplaza esto por una captura de pantalla real de tu consola cuando ejecutes el código.)*
 
