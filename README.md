@@ -11,7 +11,7 @@ Wilder Julio Espinoza Bravo
 - [Nombre 2]
 - [Nombre 3]
 - [Nombre 4]
-
+  
 ## Descripción del problema
 
 SistemaRutaCampus es una solución integradora que gestiona lugares, rutas y niveles
@@ -79,3 +79,17 @@ Organiza los lugares del campus según su distancia, de menor a mayor.
   ejecutar Merge Sort sobre cada mitad.
 
 ## Estructura del repositorio
+
+
+
+
+
+
+
+
+
+
+
+
+
+
