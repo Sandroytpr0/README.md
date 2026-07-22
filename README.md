@@ -81,7 +81,18 @@ Organiza los lugares del campus según su distancia, de menor a mayor.
 ## Estructura del repositorio
 
 
+*(Reemplaza esto por una captura de pantalla real de tu consola cuando ejecutes el código.)*
 
+## Video de exposición
+
+🔗 [Ver video en YouTube](enlace-aqui)
+
+## Aporte de cada integrante
+
+- Sandro Callañaupa Portal: Estructuras lineales estáticas (vector y matriz), recursividad, README, GitHub y sustentación
+- [Nombre 2]: [módulo que desarrolló]
+- [Nombre 3]: [módulo que desarrolló]
+- [Nombre 4]: [módulo que desarrolló]
 
 
 
