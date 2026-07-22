@@ -35,74 +35,47 @@ forma articulada.
 | Grafo | [completar] | [completar] |
 | Árbol / decisión | [completar] | [completar] |
 
+## Detalle técnico: Estructuras lineales estáticas (Vector y Matriz)
+
+### Vector de lugares — `procesarVectorLugares`
+
+Se utiliza un vector `Lugar[]` para almacenar los espacios del campus (biblioteca,
+cafetería, auditorio, laboratorio, etc.) junto con su aforo actual.
+
+- **Algoritmo aplicado:** Ordenamiento por Selección (Selection Sort), complejidad O(n²).
+- **Proceso:** ordena los lugares de menor a mayor aforo, y luego recorre el vector
+  contando cuántos lugares superan el límite de alerta (100 personas), generando un
+  consolidado de zonas con aforo crítico.
+
+### Matriz de conectividad — `analizarMatrizConectividad`
+
+Se utiliza una matriz de adyacencia `int[][]` de 4x4, donde cada celda representa
+la distancia en metros entre dos lugares del campus.
+
+- **Proceso:** recorre la matriz completa con un doble ciclo `for`, cuenta el total
+  de conexiones directas (celdas mayores a 0) y calcula la distancia promedio entre
+  los tramos del campus.
+
+## Detalle técnico: Recursividad
+
+### Búsqueda recursiva de lugares
+
+Permite encontrar un lugar específico comparando su nombre con cada elemento del
+arreglo, mediante llamadas sucesivas al mismo método en lugar de un ciclo tradicional.
+
+- **Caso base:** (1) el nombre buscado coincide con un lugar del arreglo, o
+  (2) se llega al final del arreglo sin encontrar coincidencias.
+- **Llamada recursiva:** ocurre cuando el lugar actual no coincide con el buscado;
+  el método se llama de nuevo avanzando a la siguiente posición.
+
+### Merge Sort (ordenamiento recursivo)
+
+Organiza los lugares del campus según su distancia, de menor a mayor.
+
+- **Funcionamiento:** divide el arreglo en dos mitades, ordena cada mitad de forma
+  recursiva y luego combina ambas partes ya ordenadas.
+- **Caso base:** cuando la parte del arreglo tiene un solo elemento o está vacía.
+- **Llamada recursiva:** cuando el algoritmo divide el arreglo en dos y vuelve a
+  ejecutar Merge Sort sobre cada mitad.
+
 ## Estructura del repositorio
-## Cómo ejecutar el proyecto
-
-1. Clonar el repositorio:
-```bash
-   git clone [link-del-repo]
-```
-2. Compilar el archivo principal:
-```bash
-   javac AnalisisLinealEstatico.java
-```
-3. Ejecutar:
-```bash
-   java AnalisisLinealEstatico
-```
-
-## Evidencia de ejecución
-
-## Cómo ejecutar el proyecto
-
-1. Clonar el repositorio:
-```bash
-   git clone [link-del-repo]
-```
-2. Compilar el archivo principal:
-```bash
-   javac AnalisisLinealEstatico.java
-```
-3. Ejecutar:
-```bash
-   java AnalisisLinealEstatico
-```
-
-## Evidencia de ejecución
-
-
-## Cómo ejecutar el proyecto
-
-1. Clonar el repositorio:
-```bash
-   git clone [link-del-repo]
-```
-2. Compilar el archivo principal:
-```bash
-   javac AnalisisLinealEstatico.java
-```
-3. Ejecutar:
-```bash
-   java AnalisisLinealEstatico
-```
-
-## Evidencia de ejecución
-
-<img width="1494" height="849" alt="image" src="https://github.com/user-attachments/assets/72c3e1b3-4bcc-464b-8852-3beefd4573ca" />
-
-
-## Video de exposición
-
-🔗 [Ver video en YouTube](enlace-aqui)
-
-## Aporte de cada integrante
-
-- [Nombre 1]: [módulo que desarrolló]
-- [Nombre 2]: [módulo que desarrolló]
-- [Nombre 3]: [módulo que desarrolló]
-- [Nombre 4]: [módulo que desarrolló]
-## Video de exposición
-
-🔗 [Ver video en YouTube](enlace-aqui)
-
-
