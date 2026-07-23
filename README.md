@@ -1,18 +1,18 @@
-# SistemaRutaCampus
+ SistemaRutaCampus
 
-## Curso
+ Curso
 Algoritmo y Estructura de Datos Basados en Inteligencia Artificial
 
-## Docente
+ Docente
 Wilder Julio Espinoza Bravo
 
-## Integrantes del equipo
+ Integrantes del equipo
 - Sandro Callañaupa Portal
 - Favian Andre Hurtado Carlos
 - [Nombre 3]
 - [Nombre 4]
   
-## Descripción del problema
+ Descripción del problema
 
 SistemaRutaCampus es una solución integradora que gestiona lugares, rutas y niveles
 de aforo dentro de un campus universitario, con el fin de apoyar la toma de decisiones
@@ -22,7 +22,7 @@ El sistema combina estructuras de datos lineales estáticas y dinámicas, estruc
 LIFO/FIFO, recursividad, grafos y un árbol de decisión para resolver el problema de
 forma articulada.
 
-## Estructuras de datos utilizadas
+ Estructuras de datos utilizadas
 
 | Estructura | Dónde se usa | Justificación |
 |---|---|---|
@@ -35,19 +35,19 @@ forma articulada.
 | Grafo | [completar] | [completar] |
 | Árbol / decisión | [completar] | [completar] |
 
-## Detalle técnico: Estructuras lineales estáticas (Vector y Matriz)
+ Detalle técnico: Estructuras lineales estáticas (Vector y Matriz)
 
-### Vector de lugares — `procesarVectorLugares`
+ Vector de lugares — `procesarVectorLugares`
 
 Se utiliza un vector `Lugar[]` para almacenar los espacios del campus (biblioteca,
 cafetería, auditorio, laboratorio, etc.) junto con su aforo actual.
 
-- **Algoritmo aplicado:** Ordenamiento por Selección (Selection Sort), complejidad O(n²).
-- **Proceso:** ordena los lugares de menor a mayor aforo, y luego recorre el vector
+- Algoritmo aplicado: Ordenamiento por Selección (Selection Sort), complejidad O(n²).
+- Proceso: ordena los lugares de menor a mayor aforo, y luego recorre el vector
   contando cuántos lugares superan el límite de alerta (100 personas), generando un
   consolidado de zonas con aforo crítico.
 
-### Matriz de conectividad — `analizarMatrizConectividad`
+ Matriz de conectividad — `analizarMatrizConectividad`
 
 Se utiliza una matriz de adyacencia `int[][]` de 4x4, donde cada celda representa
 la distancia en metros entre dos lugares del campus.
@@ -56,9 +56,9 @@ la distancia en metros entre dos lugares del campus.
   de conexiones directas (celdas mayores a 0) y calcula la distancia promedio entre
   los tramos del campus.
 
-## Detalle técnico: Recursividad
+ Detalle técnico: Recursividad
 
-### Búsqueda recursiva de lugares
+ Búsqueda recursiva de lugares
 
 Permite encontrar un lugar específico comparando su nombre con cada elemento del
 arreglo, mediante llamadas sucesivas al mismo método en lugar de un ciclo tradicional.
@@ -68,7 +68,7 @@ arreglo, mediante llamadas sucesivas al mismo método en lugar de un ciclo tradi
 - **Llamada recursiva:** ocurre cuando el lugar actual no coincide con el buscado;
   el método se llama de nuevo avanzando a la siguiente posición.
 
-### Merge Sort (ordenamiento recursivo)
+ Merge Sort (ordenamiento recursivo)
 
 Organiza los lugares del campus según su distancia, de menor a mayor.
 
@@ -77,11 +77,30 @@ Organiza los lugares del campus según su distancia, de menor a mayor.
 - **Caso base:** cuando la parte del arreglo tiene un solo elemento o está vacía.
 - **Llamada recursiva:** cuando el algoritmo divide el arreglo en dos y vuelve a
   ejecutar Merge Sort sobre cada mitad.
+  
+  Detalle técnico: Árbol de decisión (IA básica)
 
-## Estructura del repositorio
-*(Nota: esta es la organización planeada. Se actualizará conforme el equipo suba sus módulos.)*
+ Recomendación de ingreso según aforo — `ArbolDecisionAforo`
 
-## Cómo ejecutar el proyecto (módulo de estructuras estáticas)
+Se implementó un árbol de decisión que evalúa el nivel de aforo de un lugar y
+recomienda una acción al usuario: ingresar, esperar o evitar la zona.
+
+**Estructura del árbol:**
+- Nodo raíz: ¿aforo > 200?
+  - Si es verdadero → "Evitar zona: aforo muy alto"
+  - Si es falso → siguiente pregunta: ¿aforo > 100?
+    - Si es verdadero → "Esperar unos minutos antes de ingresar"
+    - Si es falso → "Puede ingresar sin problema"
+
+**Relación con IA básica:** el árbol de decisión es una de las técnicas más simples
+de inteligencia artificial para clasificación: mediante reglas jerárquicas de tipo
+"si-entonces", el sistema clasifica automáticamente cada situación y produce una
+recomendación sin intervención humana directa.
+
+**Decisión que produce:** una recomendación textual (evitar, esperar o ingresar)
+según el nivel de aforo registrado en cada lugar del campus.
+
+Cómo ejecutar el proyecto (módulo de estructuras estáticas)
 
 1. Clonar el repositorio:
 ```bash
@@ -100,16 +119,16 @@ Organiza los lugares del campus según su distancia, de menor a mayor.
    java AnalisisLinealEstatico
 ```
 
-## Evidencia de ejecución
+ Evidencia de ejecución
 
 <img width="725" height="615" alt="image" src="https://github.com/user-attachments/assets/2ac59c21-c6fb-4727-acf8-f6dc5c5419a6" />
 
 
-## Video de exposición
+ Video de exposición
 
 🔗 [Ver video en YouTube](enlace-aqui)
 
-## Aporte de cada integrante
+Aporte de cada integrante
 
 - Sandro Callañaupa Portal: Estructuras lineales estáticas (vector y matriz), recursividad, README, GitHub y sustentación
 - [Nombre 2]: [módulo que desarrolló]
