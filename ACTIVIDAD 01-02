@@ -1,0 +1,118 @@
+public class AnalisisLinealEstatico {
+
+    // Manejo de datos en el Vector
+    static class Lugar {
+        int id;
+        String nombre;
+        String tipo;
+        int aforoActual;
+
+        public Lugar(int id, String nombre, String tipo, int aforoActual) {
+            this.id = id;
+            this.nombre = nombre;
+            this.tipo = tipo;
+            this.aforoActual = aforoActual;
+        }
+    }
+
+
+
+
+     //OPERACIÓN 1 (VECTOR): ORDENAMIENTO POR SELECCIÓN Y BÚSQUEDA
+     //Ordena las locaciones por aforo de menor a mayor y busca si existe sobrepoblación.
+
+    //Basicamente Ordena los lugares por aforo usando Selection Sort ,imprime lista ordenada
+    // y número de alertas.
+    public static void procesarVectorLugares(Lugar[] locales) {
+        System.out.println("--- A1: PROCESAMIENTO DE VECTOR (SELECCIÓN Y ANÁLISIS) ---");
+        int n = locales.length;
+
+        // 1. Algoritmo de Ordenamiento por Selección (Selection Sort)
+        for (int i = 0; i < n - 1; i++) {
+            int indiceMinimo = i;
+            for (int j = i + 1; j < n; j++) {
+                if (locales[j].aforoActual < locales[indiceMinimo].aforoActual) {
+                    indiceMinimo = j;
+                }
+            }
+            // Intercambio de posiciones en el vector
+            Lugar temporal = locales[indiceMinimo];
+            locales[indiceMinimo] = locales[i];
+            locales[i] = temporal;
+        }
+
+
+        // 2. Recorrido, Conteo y Consolidación de Alertas
+        int limiteAlerta = 100;
+        int contAlertas = 0;
+        System.out.println("Lugares ordenados por ocupación actual:");
+
+        for (Lugar l : locales) {
+            System.out.println(" -> " + l.nombre + " (Aforo: " + l.aforoActual + ")");
+            if (l.aforoActual > limiteAlerta) {
+                contAlertas++;
+            }
+        }
+        System.out.println("Consolidado: Se detectaron " + contAlertas + " zonas con aforo crítico.\n");
+    }
+
+
+
+
+
+
+      //OPERACIÓN 2 (MATRIZ): RECORRIDO BIDIMENSIONAL Y CONSOLIDACIÓN DE DATOS
+
+        //Cada número > 0 es un camino real en metros.
+        //Recorre la matriz de rutas(distancias entre lugares)
+        // imprime cuántos caminos hay y la distancia promedio.
+    public static void analizarMatrizConectividad(int[][] matrizRutas, Lugar[] locales) {
+        System.out.println("--- A2: PROCESAMIENTO DE MATRIZ (CONSOLIDACIÓN LOGÍSTICA) ---");
+        int totalCaminos = 0;
+        int sumaDistancias = 0;
+
+        // Recorrido completo de la estructura bidimensional
+        for (int i = 0; i < matrizRutas.length; i++) {
+            for (int j = 0; j < matrizRutas[i].length; j++) {
+                // Si el valor es mayor a 0, representa un camino real en metros
+                if (matrizRutas[i][j] > 0) {
+                    totalCaminos++;
+                    sumaDistancias += matrizRutas[i][j];
+                }
+            }
+        }
+
+        // Análisis y Salida de Datos Consolidados
+        System.out.println("Total de conexiones directas detectadas: " + totalCaminos);
+        if (totalCaminos > 0) {
+            double promedio = (double) sumaDistancias / totalCaminos;
+            System.out.printf("Longitud promedio de los tramos del campus: %.2f metros.\n", promedio);
+        }
+        System.out.println("============================================================\n");
+    }
+
+
+
+
+    //CREAMOS LOS 4 lugares
+    public static void main(String[] args) {
+        // Inicialización del Vector (Estructura Lineal Estática)
+        Lugar[] locales = new Lugar[4];
+        locales[0] = new Lugar(0, "Biblioteca Central", "Academico", 120);
+        locales[1] = new Lugar(1, "Cafetería Ciencias", "Servicio", 85);
+        locales[2] = new Lugar(2, "Auditorio Magno", "Evento", 210);
+        locales[3] = new Lugar(3, "Laboratorio Química", "Academico", 15);
+
+        // Inicialización de la Matriz (Estructura Bidimensional Estática)
+        int[][] matrizRutas = {
+                {0, 50, 120, 0},
+                {50, 0, 0, 80},
+                {120, 0, 0, 100},
+                {0, 80, 100, 0}
+        };
+
+        // Ejecución de los procesos estáticos
+        procesarVectorLugares(locales);
+        analizarMatrizConectividad(matrizRutas, locales);
+    }
+}
