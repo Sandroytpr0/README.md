@@ -8,7 +8,7 @@ Wilder Julio Espinoza Bravo
 
 ## Integrantes del equipo
 - Sandro Callañaupa Portal
-- [Nombre 2]
+- Favian Andre Hurtado Carlos
 - [Nombre 3]
 - [Nombre 4]
   
