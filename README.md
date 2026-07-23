@@ -493,7 +493,7 @@ Cómo ejecutar el proyecto (módulo de estructuras estáticas)
 
  Video de exposición
 
-🔗 [Ver video en YouTube](enlace-aqui)
+🔗 [Ver video en YouTube](https://www.youtube.com/watch?v=wCwE5zyLLpU)
 
 Aporte de cada integrante
 
