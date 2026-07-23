@@ -56,6 +56,379 @@ la distancia en metros entre dos lugares del campus.
   de conexiones directas (celdas mayores a 0) y calcula la distancia promedio entre
   los tramos del campus.
 
+Detalle Técnico - Implementación de Estructuras de Datos
+
+## Actividad 3 - Lista Enlazada Simple
+
+### Objetivo
+
+Gestionar dinámicamente los reportes de aforo enviados por los usuarios del sistema, permitiendo agregar, buscar, eliminar y recorrer los reportes sin necesidad de definir un tamaño fijo de almacenamiento.
+
+---
+
+## Estructura implementada
+
+Se implementó una **Lista Enlazada Simple**, compuesta por dos clases principales:
+
+- **Reporte:** almacena la información del reporte.
+- **Nodo:** almacena un objeto `Reporte` y una referencia al siguiente nodo.
+
+### Diagrama
+
+```text
+                 ListaReportes
+                      │
+                      ▼
+                 ┌─────────┐
+                 │ inicio  │
+                 └────┬────┘
+                      │
+                      ▼
+        ┌────────────────────────────┐
+        │ Reporte: Biblioteca - Alta │
+        │ siguiente -----------------┼──────────┐
+        └────────────────────────────┘          │
+                                                ▼
+                             ┌──────────────────────────────┐
+                             │ Reporte: Laboratorio - Media │
+                             │ siguiente -------------------┼─────────┐
+                             └──────────────────────────────┘         │
+                                                                      ▼
+                                              ┌────────────────────────────┐
+                                              │ Reporte: Cafetería - Baja  │
+                                              │ siguiente = null           │
+                                              └────────────────────────────┘
+```
+
+---
+
+## Clases implementadas
+
+### Reporte
+
+Representa un reporte de aforo enviado por un usuario.
+
+#### Atributos
+
+| Atributo | Tipo | Descripción |
+|----------|------|-------------|
+| lugar | String | Nombre del lugar reportado |
+| aforo | String | Estado del aforo |
+
+---
+
+### Nodo
+
+Representa un nodo de la lista enlazada.
+
+#### Atributos
+
+| Atributo | Tipo |
+|----------|------|
+| reporte | Reporte |
+| siguiente | Nodo |
+
+Cada nodo mantiene una referencia únicamente al siguiente nodo de la lista.
+
+---
+
+### ListaReportes
+
+Administra toda la lista enlazada.
+
+#### Atributo
+
+| Atributo | Tipo |
+|----------|------|
+| inicio | Nodo |
+
+El atributo **inicio** apunta al primer nodo de la lista.
+
+---
+
+# Operaciones implementadas
+
+## Inserción
+
+### Método
+
+```java
+insertar(Reporte reporte)
+```
+
+### Funcionamiento
+
+1. Se crea un nuevo nodo.
+2. Si la lista está vacía, el nodo pasa a ser el inicio.
+3. Si existen elementos, se recorre la lista hasta el último nodo.
+4. El nuevo nodo se enlaza al final.
+
+### Complejidad
+
+```
+O(n)
+```
+
+---
+
+## Búsqueda
+
+### Método
+
+```java
+buscar(String lugar)
+```
+
+### Funcionamiento
+
+1. Se inicia desde el nodo inicial.
+2. Se compara el nombre del lugar.
+3. Si coincide, retorna el reporte.
+4. Si llega a `null`, significa que no existe.
+
+### Complejidad
+
+```
+O(n)
+```
+
+---
+
+## Eliminación
+
+### Método
+
+```java
+eliminar(String lugar)
+```
+
+### Funcionamiento
+
+1. Se verifica si el nodo a eliminar es el primero.
+2. Si no lo es, se recorre la lista.
+3. Se modifica la referencia del nodo anterior para omitir el nodo eliminado.
+
+### Complejidad
+
+```
+O(n)
+```
+
+---
+
+## Recorrido
+
+### Método
+
+```java
+mostrar()
+```
+
+### Funcionamiento
+
+Recorre todos los nodos desde el inicio hasta llegar a `null`, mostrando la información almacenada.
+
+### Complejidad
+
+```
+O(n)
+```
+
+---
+
+# Justificación técnica
+
+Se eligió una **Lista Enlazada Simple** debido a que:
+
+- La cantidad de reportes no puede determinarse previamente.
+- Permite almacenar información de manera dinámica.
+- No requiere redimensionar memoria como ocurre con los arreglos.
+- Cada nodo mantiene únicamente una referencia al siguiente nodo, reduciendo el consumo de memoria frente a una lista doble cuando no se necesita recorrer hacia atrás.
+
+---
+
+# Actividad 4 - Pila (Stack)
+
+## Objetivo
+
+Registrar el historial de rutas consultadas por el usuario.
+
+---
+
+## Implementación
+
+Se utilizó la clase:
+
+```java
+Stack<String>
+```
+
+---
+
+## Funcionamiento
+
+Cada vez que el usuario consulta una nueva ruta, esta se almacena en la pila.
+
+```text
+Top
+│
+├── Cafetería
+├── Laboratorio
+└── Biblioteca
+```
+
+Cuando el usuario selecciona la opción **Volver**, el sistema elimina y devuelve el elemento ubicado en la cima.
+
+---
+
+## Operaciones utilizadas
+
+### Push
+
+```java
+push(ruta)
+```
+
+Inserta una nueva ruta en la cima de la pila.
+
+Complejidad
+
+```
+O(1)
+```
+
+---
+
+### Pop
+
+```java
+pop()
+```
+
+Elimina y retorna la última ruta registrada.
+
+Complejidad
+
+```
+O(1)
+```
+
+---
+
+## Justificación técnica
+
+Se eligió una pila porque implementa el comportamiento **LIFO (Last In, First Out)**.
+
+Esto coincide con la funcionalidad del historial, donde la última ruta consultada debe ser la primera en recuperarse.
+
+---
+
+# Actividad 4 - Cola (Queue)
+
+## Objetivo
+
+Procesar los reportes de aforo respetando el orden en que fueron enviados por los usuarios.
+
+---
+
+## Implementación
+
+Se utilizó la interfaz
+
+```java
+Queue<String>
+```
+
+con la implementación
+
+```java
+LinkedList<String>
+```
+
+---
+
+## Funcionamiento
+
+Cada reporte recibido ingresa al final de la cola.
+
+```text
+Entrada
+
+Biblioteca llena
+        │
+        ▼
+Laboratorio libre
+        │
+        ▼
+Cafetería media
+
+Salida
+```
+
+El sistema procesa siempre el reporte ubicado al inicio.
+
+---
+
+## Operaciones utilizadas
+
+### Offer
+
+```java
+offer(reporte)
+```
+
+Inserta un nuevo reporte al final de la cola.
+
+Complejidad
+
+```
+O(1)
+```
+
+---
+
+### Poll
+
+```java
+poll()
+```
+
+Obtiene y elimina el primer reporte de la cola.
+
+Complejidad
+
+```
+O(1)
+```
+
+---
+
+# Justificación técnica
+
+Se eligió una cola porque implementa el comportamiento **FIFO (First In, First Out)**.
+
+Esto garantiza que los reportes sean procesados exactamente en el orden en que fueron recibidos, evitando que reportes recientes se procesen antes que los más antiguos.
+
+---
+
+# Comparación de estructuras utilizadas
+
+| Estructura | Tipo | Operaciones principales | Complejidad |
+|------------|------|-------------------------|-------------|
+| Lista Enlazada Simple | Dinámica | Insertar, Buscar, Eliminar, Recorrer | O(n) |
+| Pila (Stack) | LIFO | Push, Pop | O(1) |
+| Cola (Queue) | FIFO | Offer, Poll | O(1) |
+
+---
+
+# Conclusión
+
+Las estructuras implementadas responden directamente a los requerimientos funcionales del sistema:
+
+- La **Lista Enlazada Simple** permite administrar reportes de aforo cuya cantidad varía constantemente.
+- La **Pila** mantiene un historial de navegación respetando el principio **LIFO**.
+- La **Cola** organiza el procesamiento de reportes siguiendo el principio **FIFO**, garantizando un orden justo y eficiente.
+
  Detalle técnico: Recursividad
 
  Búsqueda recursiva de lugares
