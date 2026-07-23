@@ -421,13 +421,6 @@ Esto garantiza que los reportes sean procesados exactamente en el orden en que f
 
 ---
 
-# Conclusión
-
-Las estructuras implementadas responden directamente a los requerimientos funcionales del sistema:
-
-- La **Lista Enlazada Simple** permite administrar reportes de aforo cuya cantidad varía constantemente.
-- La **Pila** mantiene un historial de navegación respetando el principio **LIFO**.
-- La **Cola** organiza el procesamiento de reportes siguiendo el principio **FIFO**, garantizando un orden justo y eficiente.
 
  Detalle técnico: Recursividad
 
