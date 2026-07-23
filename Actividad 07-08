@@ -1,0 +1,24 @@
+Actividad 8. Integración final y sustentación
+Presentación articulada del sistema
+
+El sistema SistemaRutaCampus integra de manera articulada las estructuras de datos trabajadas a lo largo del curso para resolver un problema real: la gestión de aforo, conectividad y recomendación de rutas dentro de un campus universitario.
+
+A continuación se resume cómo se conectan los distintos módulos desarrollados:
+
+Módulo	Estructura	Función dentro del sistema
+Gestión de lugares y aforo	Vector (Lugar[])	Almacena los lugares del campus y su aforo actual; permite ordenarlos y detectar zonas críticas
+Conectividad entre lugares	Matriz de adyacencia	Calcula distancias y conexiones directas entre los lugares del campus
+Reportes de aforo en tiempo real	Lista enlazada simple	Registra los reportes enviados por los usuarios sin límite de tamaño fijo
+[Historial / atención de solicitudes]	Pila y Cola	(pendiente — completar con el módulo del compañero encargado)
+Búsqueda y ordenamiento de rutas	Recursividad (búsqueda recursiva + Merge Sort)	Encuentra un lugar específico y ordena los lugares según distancia
+Modelado de rutas del campus	Grafo (lista de adyacencia + BFS)	Representa las conexiones entre lugares y calcula el recorrido más eficiente
+Recomendación de ingreso	Árbol de decisión	Clasifica el aforo de cada lugar y recomienda si conviene ingresar, esperar o evitar la zona
+Flujo general del sistema
+El sistema almacena los lugares del campus y su información básica en un vector (Actividad 2).
+Se registran continuamente nuevos reportes de aforo mediante una lista enlazada, dado que no se conoce de antemano cuántos reportes llegarán (Actividad 3).
+Las solicitudes o acciones del sistema se procesan en orden mediante estructuras LIFO/FIFO (pendiente).
+Se puede buscar un lugar específico y ordenar los lugares por distancia utilizando algoritmos recursivos (Actividad 5).
+Las rutas entre lugares se modelan como un grafo, permitiendo recorrer el campus mediante BFS (Actividad 6).
+Finalmente, el sistema clasifica el nivel de aforo de cada lugar mediante un árbol de decisión y recomienda una acción al usuario (Actividad 7).
+
+De esta manera, el sistema no trabaja con ejercicios aislados, sino que cada estructura cumple un rol específico dentro de un mismo flujo: desde el almacenamiento de datos, pasando por su organización y búsqueda, hasta la toma de decisiones final.
