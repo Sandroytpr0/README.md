@@ -501,7 +501,7 @@ Aporte de cada integrante
 - Claudio Saldaña Isaac: Planteamiento del problema y modelado inicial - Estructuras lineales estáticas
 - [Nombre 3]: [módulo que desarrolló]
 - [Nombre 4]: [módulo que desarrolló]
-
+ 
 
 
 
