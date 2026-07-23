@@ -6,6 +6,7 @@ Algoritmo y Estructura de Datos Basados en Inteligencia Artificial
  Docente
 Wilder Julio Espinoza Bravo
 
+
  Integrantes del equipo
 - Sandro Callañaupa Portal
 - Favian Andre Hurtado Carlos
