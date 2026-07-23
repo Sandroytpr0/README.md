@@ -1,0 +1,151 @@
+public class SistemaRutaCampus {
+
+    // Clase para guardar los datos de cada lugar
+    static class Lugar {
+
+        int id;
+        String nombre;
+        String tipo;
+        int distancia;
+
+        public Lugar(int id, String nombre, String tipo, int distancia) {
+
+            this.id = id;
+            this.nombre = nombre;
+            this.tipo = tipo;
+            this.distancia = distancia;
+
+        }
+
+    }
+
+    // OPERACIÓN 1: BÚSQUEDA RECURSIVA
+    public static Lugar buscarLugarRecursivo(Lugar[] lugares, String nombre, int indice) {
+
+        // Caso base: llegó al final
+        if (indice >= lugares.length) {
+
+            return null;
+
+        }
+
+        // Encontró el lugar
+        if (lugares[indice].nombre.equalsIgnoreCase(nombre)) {
+
+            return lugares[indice];
+
+        }
+
+        // Llamada recursiva
+        return buscarLugarRecursivo(lugares, nombre, indice + 1);
+
+    }
+
+    // OPERACIÓN 2: MERGE SORT RECURSIVO
+    public static void mergeSort(Lugar[] lugares, int inicio, int fin) {
+
+        if (inicio < fin) {
+
+            int medio = (inicio + fin) / 2;
+
+            mergeSort(lugares, inicio, medio);
+
+            mergeSort(lugares, medio + 1, fin);
+
+            merge(lugares, inicio, medio, fin);
+
+        }
+
+    }
+
+    // MÉTODO PARA UNIR LOS DATOS ORDENADOS
+    public static void merge(Lugar[] lugares, int inicio, int medio, int fin) {
+
+        Lugar[] auxiliar = new Lugar[lugares.length];
+
+        int i = inicio;
+        int j = medio + 1;
+        int k = inicio;
+
+        while (i <= medio && j <= fin) {
+
+            if (lugares[i].distancia <= lugares[j].distancia) {
+
+                auxiliar[k] = lugares[i];
+                i++;
+
+            } else {
+
+                auxiliar[k] = lugares[j];
+                j++;
+
+            }
+
+            k++;
+
+        }
+
+        while (i <= medio) {
+
+            auxiliar[k] = lugares[i];
+            i++;
+            k++;
+
+        }
+
+        while (j <= fin) {
+
+            auxiliar[k] = lugares[j];
+            j++;
+            k++;
+
+        }
+
+        for (int x = inicio; x <= fin; x++) {
+
+            lugares[x] = auxiliar[x];
+
+        }
+
+    }
+
+    // PROGRAMA PRINCIPAL
+    public static void main(String[] args) {
+
+        Lugar[] campus = {
+            new Lugar(1, "Biblioteca", "Estudio", 50),
+            new Lugar(2, "Laboratorio", "Tecnologia", 20),
+            new Lugar(3, "Cafeteria", "Comida", 80),
+            new Lugar(4, "Aula 101", "Clase", 30)
+
+        };
+
+        // Prueba de búsqueda
+        Lugar encontrado = buscarLugarRecursivo(campus, "Laboratorio", 0);
+
+        if (encontrado != null) {
+
+            System.out.println("Lugar encontrado: " + encontrado.nombre);
+
+            System.out.println("Distancia: " + encontrado.distancia + " metros");
+
+        } else {
+
+            System.out.println("Lugar no encontrado");
+
+        }
+
+        // Ordenamiento por distancia
+        mergeSort(campus, 0, campus.length - 1);
+
+        System.out.println("\nLugares ordenados por distancia:");
+
+        for (Lugar lugar : campus) {
+
+            System.out.println(lugar.nombre + " - " + lugar.distancia + " metros");
+
+        }
+
+    }
+
+}
