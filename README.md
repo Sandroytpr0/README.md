@@ -500,7 +500,7 @@ Aporte de cada integrante
 - Sandro Callañaupa Portal: Estructuras lineales estáticas (vector y matriz), recursividad, README, GitHub y sustentación
 - Claudio Saldaña Isaac: Planteamiento del problema y modelado inicial - Estructuras lineales estáticas
 - Alvaro Daniel Pino Chavez : Grafo y Busqueda
-- [Nombre 4]: [módulo que desarrolló]
+- favian andre hurtado carlos : listas enlazada, lifo y fifo
  
 
 
