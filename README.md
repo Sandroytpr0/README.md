@@ -9,7 +9,7 @@ Wilder Julio Espinoza Bravo
  Integrantes del equipo
 - Sandro Callañaupa Portal
 - Favian Andre Hurtado Carlos
-- [Nombre 3]
+- Claudio Saldaña Isaac Arturo
 - [Nombre 4]
   
  Descripción del problema
@@ -131,7 +131,7 @@ Cómo ejecutar el proyecto (módulo de estructuras estáticas)
 Aporte de cada integrante
 
 - Sandro Callañaupa Portal: Estructuras lineales estáticas (vector y matriz), recursividad, README, GitHub y sustentación
-- [Nombre 2]: [módulo que desarrolló]
+- Claudio Saldaña Isaac: Planteamiento del problema y modelado inicial - Estructuras lineales estáticas
 - [Nombre 3]: [módulo que desarrolló]
 - [Nombre 4]: [módulo que desarrolló]
 
