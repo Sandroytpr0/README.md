@@ -1,0 +1,225 @@
+//actividad 3
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        ListaReportes lista = new ListaReportes();
+
+        lista.insertar(new Reporte("Biblioteca", "Alta"));
+        lista.insertar(new Reporte("Cafetería", "Media"));
+        lista.insertar(new Reporte("Laboratorio 3", "Baja"));
+
+        lista.mostrar();
+
+        System.out.println();
+
+        System.out.println(lista.buscar("Biblioteca"));
+
+        lista.eliminar("Cafetería");
+
+        System.out.println();
+
+        lista.mostrar();
+
+    }
+
+}
+public class Reporte {
+
+    private String lugar;
+    private String aforo;
+
+    public Reporte(String lugar, String aforo) {
+        this.lugar = lugar;
+        this.aforo = aforo;
+    }
+
+    public String getLugar() {
+        return lugar;
+    }
+
+    public String getAforo() {
+        return aforo;
+    }
+
+    @Override
+    public String toString() {
+        return lugar + " - " + aforo;
+    }
+
+}
+
+public class Nodo {
+
+    Reporte reporte;
+    Nodo siguiente;
+
+    public Nodo(Reporte reporte) {
+        this.reporte = reporte;
+    }
+
+}
+
+public class ListaReportes {
+
+    private Nodo inicio;
+
+    // Insertar
+    public void insertar(Reporte reporte) {
+
+        Nodo nuevo = new Nodo(reporte);
+
+        if (inicio == null) {
+            inicio = nuevo;
+            return;
+        }
+
+        Nodo aux = inicio;
+
+        while (aux.siguiente != null) {
+            aux = aux.siguiente;
+        }
+
+        aux.siguiente = nuevo;
+    }
+
+    // Buscar
+    public Reporte buscar(String lugar) {
+
+        Nodo aux = inicio;
+
+        while (aux != null) {
+
+            if (aux.reporte.getLugar().equalsIgnoreCase(lugar))
+                return aux.reporte;
+
+            aux = aux.siguiente;
+        }
+
+        return null;
+    }
+
+    // Eliminar
+    public void eliminar(String lugar) {
+
+        if (inicio == null)
+            return;
+
+        if (inicio.reporte.getLugar().equalsIgnoreCase(lugar)) {
+            inicio = inicio.siguiente;
+            return;
+        }
+
+        Nodo actual = inicio;
+
+        while (actual.siguiente != null) {
+
+            if (actual.siguiente.reporte.getLugar().equalsIgnoreCase(lugar)) {
+                actual.siguiente = actual.siguiente.siguiente;
+                return;
+            }
+
+            actual = actual.siguiente;
+        }
+    }
+
+    // Recorrer
+    public void mostrar() {
+
+        Nodo aux = inicio;
+
+        while (aux != null) {
+            System.out.println(aux.reporte);
+            aux = aux.siguiente;
+        }
+
+    }
+
+}
+
+
+//actividad 4 
+
+//pilas
+public class Main {
+
+    public static void main(String[] args) {
+
+        HistorialRutas h = new HistorialRutas();
+
+        h.guardarRuta("Biblioteca");
+        h.guardarRuta("Laboratorio");
+        h.guardarRuta("Cafetería");
+
+        h.volver();
+        h.volver();
+
+    }
+
+}
+
+import java.util.Stack;
+
+public class HistorialRutas {
+
+    private Stack<String> historial = new Stack<>();
+
+    public void guardarRuta(String ruta) {
+        historial.push(ruta);
+    }
+
+    public void volver() {
+
+        if (!historial.isEmpty()) {
+            System.out.println("Regresando desde: " + historial.pop());
+        } else {
+            System.out.println("No hay historial.");
+        }
+
+    }
+
+}
+
+//colas
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        ColaReportes cola = new ColaReportes();
+
+        cola.agregarReporte("Biblioteca llena");
+        cola.agregarReporte("Laboratorio libre");
+        cola.agregarReporte("Cafetería media");
+
+        cola.procesarReporte();
+        cola.procesarReporte();
+        cola.procesarReporte();
+
+    }
+
+}
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class ColaReportes {
+
+    private Queue<String> cola = new LinkedList<>();
+
+    public void agregarReporte(String reporte) {
+        cola.offer(reporte);
+    }
+
+    public void procesarReporte() {
+
+        if (!cola.isEmpty()) {
+            System.out.println("Procesando: " + cola.poll());
+        } else {
+            System.out.println("No hay reportes.");
+        }
+
+    }
+
+}
