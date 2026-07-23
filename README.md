@@ -11,7 +11,7 @@ Wilder Julio Espinoza Bravo
 - Sandro Callañaupa Portal
 - Favian Andre Hurtado Carlos
 - Claudio Saldaña Isaac Arturo
-- [Nombre 4]
+- Alvaro Daniel Pino Chavez
   
  Descripción del problema
 
@@ -499,7 +499,7 @@ Aporte de cada integrante
 
 - Sandro Callañaupa Portal: Estructuras lineales estáticas (vector y matriz), recursividad, README, GitHub y sustentación
 - Claudio Saldaña Isaac: Planteamiento del problema y modelado inicial - Estructuras lineales estáticas
-- [Nombre 3]: [módulo que desarrolló]
+- Alvaro Daniel Pino Chavez : Grafo y Busqueda
 - [Nombre 4]: [módulo que desarrolló]
  
 
