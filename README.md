@@ -28,12 +28,12 @@ forma articulada.
 |---|---|---|
 | Vector (`Lugar[]`) | Gestión de lugares y su aforo actual | Cantidad fija de lugares conocida de antemano; acceso directo por índice |
 | Matriz (`int[][]`) | Matriz de adyacencia de distancias entre lugares | Representa relaciones fijas entre todos los pares de lugares |
-| Lista enlazada | [completar con el módulo de tu compañero] | [completar] |
-| Pila | [completar] | [completar] |
-| Cola | [completar] | [completar] |
+| Lista enlazada | Módulo de Reporte de Incidencias en tiempo real (caminos bloqueados) | El flujo de alertas por mantenimiento o eventos es totalmente dinámico e impredecible; permite inserciones y eliminaciones eficientes en $O(1)$ |
+| Pila | Historial de navegación y rastreo del usuario (*Botón Atrás*) | Sigue una política LIFO (*Last In, First Out*), ideal para almacenar los IDs de los nodos visitados y regresar al paso anterior |
+| Cola | Sistema de tickets y atención en ventanillas de la Biblioteca | Sigue una política FIFO (*First In, First Out*), garantizando atender a los estudiantes estrictamente en su orden de llegada |
 | Recursividad | Búsqueda recursiva de lugares + Merge Sort | Permite recorrer y ordenar sin ciclos tradicionales |
-| Grafo | [completar] | [completar] |
-| Árbol / decisión | [completar] | [completar] |
+| Grafo | Mapeo vial del campus y cálculo de rutas óptimas (BFS / Dijkstra) | Es la estructura no lineal natural para modelar redes de transporte, donde los vértices son los lugares físicos y las aristas son las calles interconectadas |
+| Árbol / decisión | Motor de IA básica para la recomendación de rutas y transporte | Estructura jerárquica basada en reglas lógicas condicionales que evalúa variables (clima, aforo, distancia) para emitir la mejor decisión de movilidad |
 
  Detalle técnico: Estructuras lineales estáticas (Vector y Matriz)
 
